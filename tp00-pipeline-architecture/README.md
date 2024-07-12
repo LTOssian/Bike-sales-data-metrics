@@ -1,5 +1,13 @@
 # TP00 - Architecture Pipeline: Ventes de Vélos en Europe
 
+## Groupe
+
+- Faustine CHARRIER
+- Mattis ALMEIDA LIMA
+- Louisan TCHITOULA
+- Djédjé GBOBLE
+- Julien HEITZ
+
 ## Schéma
 
 ![Schéma de l'Architecture](../docs/schema-architecture.png)
