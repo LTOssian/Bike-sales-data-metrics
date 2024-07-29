@@ -27,7 +27,7 @@ TODO: [Set up du cluster Hadoop](https://gitlab.ec-lyon.fr/sderrode/TP_BigData_E
 
 ```bash
 # In local terminal
-cd bike-sales
+cd bike_sales_analysis
 docker cp Sales_extract100.csv hadoop-master:/root/sales
 ```
 
