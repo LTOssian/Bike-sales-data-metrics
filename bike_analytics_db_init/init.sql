@@ -44,13 +44,13 @@ CREATE TABLE sales_data (
 
 -- Question 1: Revenu par catégories
 CREATE TABLE category_revenue (
-    category_name product_category PRIMARY KEY,
+    category_name VARCHAR(255) PRIMARY KEY,
     total_revenue NUMERIC
 );
 
 -- Question 2: Revenu par sous-catégories
 CREATE TABLE subcategory_revenue (
-    subcategory_name sub_category PRIMARY KEY,
+    subcategory_name VARCHAR(255) PRIMARY KEY,
     total_revenue NUMERIC
 );
 
@@ -68,6 +68,6 @@ CREATE TABLE top_products_france (
 
 -- Question 5: Ventes par tranches d'âge
 CREATE TABLE age_group_purchases (
-    age_group age_group PRIMARY KEY,
+    age_group VARCHAR(255) PRIMARY KEY,
     total_purchases INTEGER
 );
