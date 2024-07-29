@@ -19,7 +19,7 @@ Voici une liste de question que nous voulons aborder:
 
 ## Lancement
 
-TODO: Set up du cluster Hadoop
+TODO: [Set up du cluster Hadoop](https://gitlab.ec-lyon.fr/sderrode/TP_BigData_ECL)
 
 ```bash
 docker cp ./bike-sales/Sales.csv hadoop-master:/sales
