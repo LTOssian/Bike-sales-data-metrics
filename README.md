@@ -19,6 +19,12 @@ Voici une liste de question que nous voulons aborder:
 
 ## Lancement
 
+TODO: Set up du cluster Hadoop
+
+```bash
+docker cp ./bike-sales/Sales.csv hadoop-master:/sales
+```
+
 ## Groupe
 
 - Faustine CHARRIER
