@@ -1,0 +1,38 @@
+services:
+  bike_postgres:
+    image: postgres:15.7
+    ports:
+      - "5433:5432"
+    networks:
+      - bikes_network
+    volumes:
+      - ./bike_db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_DB: bike_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+
+  bike_destination:
+    image: postgres:15.7
+    ports:
+      - "5434:5432"
+    networks:
+      - bikes_network
+    environment:
+      POSTGRES_DB: bike_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+
+  bike_script:
+    build:
+      context: ./bike-sales
+      dockerfile: Dockerfile
+    command: ["python", "process_data.py"]
+    networks:
+      - bikes_network
+    depends_on:
+      - bike_postgres
+
+networks:
+  bikes_network:
+    driver: bridge
