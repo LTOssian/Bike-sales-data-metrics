@@ -41,3 +41,33 @@ CREATE TABLE sales_data (
     Cost DECIMAL(10, 2),
     Revenue DECIMAL(10, 2)
 );
+
+-- Question 1: Revenu par catégories
+CREATE TABLE category_revenue (
+    category_name product_category PRIMARY KEY,
+    total_revenue NUMERIC
+);
+
+-- Question 2: Revenu par sous-catégories
+CREATE TABLE subcategory_revenue (
+    subcategory_name sub_category PRIMARY KEY,
+    total_revenue NUMERIC
+);
+
+-- Question 3: Top des produits
+CREATE TABLE top_products (
+    product_name VARCHAR(255) PRIMARY KEY,
+    total_revenue NUMERIC
+);
+
+-- Question 4: Top des produits en France
+CREATE TABLE top_products_france (
+    product_name VARCHAR(255) PRIMARY KEY,
+    total_revenue NUMERIC
+);
+
+-- Question 5: Ventes par tranches d'âge
+CREATE TABLE age_group_purchases (
+    age_group age_group PRIMARY KEY,
+    total_purchases INTEGER
+);

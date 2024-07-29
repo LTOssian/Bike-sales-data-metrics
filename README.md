@@ -19,10 +19,22 @@ Voici une liste de question que nous voulons aborder:
 
 ## Lancement
 
+### Mise en place de la base de donnée
+
+1. 
+
 TODO: [Set up du cluster Hadoop](https://gitlab.ec-lyon.fr/sderrode/TP_BigData_ECL)
 
 ```bash
-docker cp ./bike-sales/Sales.csv hadoop-master:/sales
+# In local terminal
+cd bike-sales
+docker cp Sales_extract100.csv hadoop-master:/root/sales
+```
+
+```bash
+# In hadoop-master container terminal
+hdfs dfs -mkdir input
+hdfs dfs -put sales/Sales.csv input
 ```
 
 ## Groupe
