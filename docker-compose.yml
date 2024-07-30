@@ -12,7 +12,26 @@ services:
       POSTGRES_DB: bike_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
-      
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - hadoop
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      # - ./grafana/grafana-setup.sh:/tmp/grafana-setup.sh
+    restart: on-failure
+
 networks:
   hadoop:
     external: true
+
+volumes:
+  grafana_data: {}

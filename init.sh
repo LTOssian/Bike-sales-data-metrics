@@ -33,11 +33,12 @@ docker exec hadoop-master mkdir -p /root/sales
 docker cp postgresql-42.7.3.jar hadoop-master:/opt/spark/jars/
 
 # Copy the sales files to the master container
-docker cp bike_Sales_analysis/Sales_extract100.csv hadoop-master:/root/sales
+docker cp bike_Sales_analysis/Sales.csv hadoop-master:/root/sales
 
 # Copy the scripts to the master container
 docker cp bike_sales_analysis/batch/revenue_per_category/revenue_per_category.py hadoop-master:/root/sales
 docker cp bike_sales_analysis/batch/revenue_per_subcategory/revenue_per_subcategory.py hadoop-master:/root/sales
+docker cp bike_sales_analysis/batch/top_10_products_france/top_10_products_france.py hadoop-master:/root/sales
 
 # Set JAVA_HOME based on the architecture (AMD or ARM)
 
@@ -63,4 +64,8 @@ docker exec hadoop-master /bin/bash -c "/usr/local/hadoop/bin/hdfs namenode -for
 # Start the hadoop daemon
 docker exec hadoop-master /bin/bash -c "./start-hadoop.sh"
 docker exec hadoop-master /bin/bash -c "hdfs dfs -mkdir /input"
-docker exec hadoop-master /bin/bash -c "hdfs dfs -put /sales/Sales_extract100.csv /input"
+docker exec hadoop-master /bin/bash -c "hdfs dfs -put /root/sales/Sales.csv /input"
+
+# Collect csv to sql
+docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_category.py"
+docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/top_10_products_france.py"
