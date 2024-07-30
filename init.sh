@@ -62,5 +62,4 @@ docker exec hadoop-master /bin/bash -c "/usr/local/hadoop/bin/hdfs namenode -for
 # Start the hadoop daemon
 docker exec hadoop-master /bin/bash -c "./start-hadoop.sh"
 docker exec hadoop-master /bin/bash -c "hdfs dfs -mkdir /input"
-
-TODO: add the csv in the input folder in hadoop structure
+docker exec hadoop-master /bin/bash -c "hdfs dfs -put /sales/Sales_extract100.csv /input"
