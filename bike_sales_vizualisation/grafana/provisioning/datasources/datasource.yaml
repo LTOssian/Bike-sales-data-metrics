@@ -1,0 +1,13 @@
+apiVersion: 1
+
+datasources:
+  - name: bike_data
+    type: postgres
+    access: proxy
+    orgId: 1
+    url: bike_postgres
+    user: postgres
+    password: secret
+    database: bike_db
+    isDefault: true
+    editable: true

@@ -26,7 +26,8 @@ services:
       GF_USERS_ALLOW_SIGN_UP: false
     volumes:
       - grafana_data:/var/lib/grafana
-      # - ./grafana/grafana-setup.sh:/tmp/grafana-setup.sh
+      - ./bike_sales_vizualisation/grafana/provisioning:/etc/grafana/provisioning
+      - ./bike_sales_vizualisation/grafana/dashboard:/var/lib/grafana/dashboards
     restart: on-failure
 
 networks:
