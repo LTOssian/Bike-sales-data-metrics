@@ -18,9 +18,13 @@ product_revenue_france = france_sales.groupBy("Product").sum("Revenue")
 
 # Rename columns for clarity
 product_revenue_france = product_revenue_france.withColumnRenamed("sum(Revenue)", "total_revenue")
+product_revenue_france = product_revenue_france.withColumnRenamed("Product", "product_name")
 
 # Get the top 10 products by total revenue in France
 top_10_products_france = product_revenue_france.orderBy(col("total_revenue").desc()).limit(10)
+
+# Print the results for verification
+top_10_products_france.show()
 
 # Define PostgreSQL connection properties
 jdbc_url = "jdbc:postgresql://bike_postgres:5432/bike_db"
@@ -31,7 +35,11 @@ connection_properties = {
 }
 
 # Write the DataFrame to PostgreSQL
-top_10_products_france.write.jdbc(url=jdbc_url, table="top_10_products_france", mode="append", properties=connection_properties)
+try:
+    top_10_products_france.write.jdbc(url=jdbc_url, table="top_10_products_france", mode="append", properties=connection_properties)
+    print("Data written successfully to top_10_products_france table.")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 # Stop Spark session
 spark.stop()

@@ -16,8 +16,8 @@ category_revenue = df.groupBy("Product_Category").sum("Revenue")
 category_revenue = category_revenue.withColumnRenamed("sum(Revenue)", "total_revenue")
 category_revenue = category_revenue.withColumnRenamed("Product_Category", "category_name")
 
-# Print schema to verify columns after transformation
-category_revenue.printSchema()
+# Print results
+category_revenue.show()
 
 # Define PostgreSQL connection properties
 jdbc_url = "jdbc:postgresql://bike_postgres:5432/bike_db"
@@ -28,7 +28,11 @@ connection_properties = {
 }
 
 # Write the DataFrame to PostgreSQL
-category_revenue.write.jdbc(url=jdbc_url, table="category_revenue", mode="append", properties=connection_properties)
+try:
+    category_revenue.write.jdbc(url=jdbc_url, table="category_revenue", mode="append", properties=connection_properties)
+    print("Data written successfully to category_revenue table.")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 # Stop Spark session
 spark.stop()
