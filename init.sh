@@ -7,18 +7,18 @@ docker pull stephanederrode/docker-cluster-hadoop-spark-python-16:3.5
 docker network create hadoop
 
 # Launch the hadoop cluster containers
-docker run --platform linux/amd64 -itd --net=hadoop \
+docker run -itd --net=hadoop \
   -p 9870:9870 -p 8088:8088 -p 7077:7077 -p 16010:16010 -p 9999:9999 \
   --name hadoop-master --hostname hadoop-master \
   stephanederrode/docker-cluster-hadoop-spark-python-16:3.5
 
 # Launch the first slave container
-docker run --platform linux/amd64 -itd -p 8040:8042 --net=hadoop \
+docker run -itd -p 8040:8042 --net=hadoop \
   --name hadoop-slave1 --hostname hadoop-slave1 \
   stephanederrode/docker-cluster-hadoop-spark-python-16:3.5
 
 # Launch the second slave container
-docker run --platform linux/amd64 -itd -p 8041:8042 --net=hadoop \
+docker run -itd -p 8041:8042 --net=hadoop \
   --name hadoop-slave2 --hostname hadoop-slave2 \
   stephanederrode/docker-cluster-hadoop-spark-python-16:3.5
 
@@ -47,7 +47,7 @@ if [[ "$(uname -m)" == "arm64" || "$(uname -m)" == "aarch64" ]]; then
   docker exec hadoop-master bash -c 'source /root/.bashrc'
 
   # Edit hadoop-env.sh for ARM
-  docker exec hadoop-master bash -c 'sed -i "s|export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64|export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64|g" /usr/local/hadoop/etc/hadoop/hadoop-env.sh'
+  docker exec hadoop-master bash -c 'sed -i "s|# export JAVA_HOME=.*|export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64|g" /usr/local/hadoop/etc/hadoop/hadoop-env.sh'
   echo "Config for ARM architecture done"
 else
   # Set JAVA_HOME for AMD architecture
@@ -55,3 +55,9 @@ else
   docker exec hadoop-master bash -c 'source /root/.bashrc'
   echo "Config for AMD architecture done"
 fi
+
+# Format disk space in hdfs format
+docker exec hadoop-master /bin/bash -c "/usr/local/hadoop/bin/hdfs namenode -format"
+
+# Start the hadoop daemon
+docker exec hadoop-master /bin/bash -c "./start-hadoop.sh"
