@@ -61,12 +61,12 @@ CREATE TABLE top_products (
 );
 
 -- Question 4: Top des produits en France
-CREATE TABLE top_products_france (
+CREATE TABLE top_10_products_france (
     product_name VARCHAR(255) PRIMARY KEY,
     total_revenue NUMERIC
 );
 
--- Question 5: Ventes par tranches d'âge
+-- Question 5: Top produit par tranches d'âge
 CREATE TABLE age_group_purchases (
     age_group VARCHAR(255) PRIMARY KEY,
     total_purchases INTEGER
