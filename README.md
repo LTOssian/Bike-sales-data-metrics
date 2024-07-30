@@ -19,26 +19,10 @@ Voici une liste de question que nous voulons aborder:
 
 ## Lancement
 
-### Mise en place du projet
+### Mise en place et lancement du projet
 
 ```bash
 source init.sh #ou ./init.sh
-```
-
-### Lancer le script 01 -> Revenu par catégories
-
-```bash
-# Mettre en place le script dans le container
-docker cp bike_sales_analysis/batch/revenue_per_category/revenue_per_category.py hadoop-master:/root/sales
-```
-
-```bash
-# Lancer le job
-# Alimenter la table revenue par catégorie
-spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_category.py
-
-# Alimenter la table top 10 produits france
-spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/top_10_products_france.py
 ```
 
 ## Ressources
