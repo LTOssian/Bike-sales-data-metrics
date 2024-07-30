@@ -69,3 +69,4 @@ docker exec hadoop-master /bin/bash -c "hdfs dfs -put /root/sales/Sales.csv /inp
 # Collect csv to sql
 docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_category.py"
 docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/top_10_products_france.py"
+docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_subcategory.py"
