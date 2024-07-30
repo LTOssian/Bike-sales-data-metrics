@@ -19,17 +19,10 @@ Voici une liste de question que nous voulons aborder:
 
 ## Lancement
 
-### Mise en place de la base de donnée
+### Mise en place du projet
 
 ```bash
 source init.sh #ou ./init.sh
-```
-
-```bash
-# In hadoop-master container terminal
-hdfs dfs -mkdir /input/
-hdfs dfs -put sales/Sales.csv /input/
-spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_category.py
 ```
 
 ### Lancer le script 01 -> Revenu par catégories
