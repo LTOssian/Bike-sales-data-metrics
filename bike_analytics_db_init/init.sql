@@ -49,8 +49,8 @@ CREATE TABLE category_revenue (
 );
 
 -- Question 2: Revenu par sous-catégories
-CREATE TABLE subcategory_revenue (
-    subcategory_name VARCHAR(255) PRIMARY KEY,
+CREATE TABLE sub_category_revenue (
+    sub_category_name VARCHAR(255) PRIMARY KEY,
     total_revenue NUMERIC
 );
 
