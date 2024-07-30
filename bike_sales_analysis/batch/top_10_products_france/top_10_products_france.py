@@ -7,7 +7,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Read data from HDFS
-df = spark.read.csv("hdfs://hadoop-master:9000/input/Sales_extract100.csv", header=True, inferSchema=True)
+df = spark.read.csv("hdfs://hadoop-master:9000/input/Sales.csv", header=True, inferSchema=True)
 
 # Print schema to verify columns
 df.printSchema()
