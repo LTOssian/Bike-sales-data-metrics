@@ -37,6 +37,7 @@ docker cp bike_Sales_analysis/Sales_extract100.csv hadoop-master:/root/sales
 
 # Copy the scripts to the master container
 docker cp bike_sales_analysis/batch/revenue_per_category/revenue_per_category.py hadoop-master:/root/sales
+docker cp bike_sales_analysis/batch/revenue_per_subcategory/revenue_per_subcategory.py hadoop-master:/root/sales
 
 # Set JAVA_HOME based on the architecture (AMD or ARM)
 

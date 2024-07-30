@@ -37,6 +37,18 @@ docker cp bike_sales_analysis/batch/revenue_per_category/revenue_per_category.py
 spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_category.py
 ```
 
+### Lancer le script 02 -> Revenu par sous-catégories
+
+```bash
+# Mettre en place le script dans le container
+docker cp bike_sales_analysis/batch/revenue_per_subcategory/revenue_per_subcategory.py hadoop-master:/root/sales
+```
+
+```bash
+# Lancer le job
+spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_subcategory.py
+```
+
 ## Ressources
 
 - L'image initial du cluster hadoop vient du [TP BigData de l'Ecole Centrale de Lyon](https://gitlab.ec-lyon.fr/sderrode/TP_BigData_ECL) proposé par Stéphane DERRODE.
