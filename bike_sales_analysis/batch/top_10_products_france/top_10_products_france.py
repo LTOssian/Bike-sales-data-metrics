@@ -3,7 +3,7 @@ from pyspark.sql.functions import col
 
 # Initialize Spark session
 spark = SparkSession.builder \
-    .appName("CategoryRevenue") \
+    .appName("Top10Category") \
     .getOrCreate()
 
 # Read data from HDFS
