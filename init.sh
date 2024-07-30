@@ -62,4 +62,4 @@ docker exec hadoop-master /bin/bash -c "/usr/local/hadoop/bin/hdfs namenode -for
 # Start the hadoop daemon
 docker exec hadoop-master /bin/bash -c "./start-hadoop.sh"
 docker exec hadoop-master /bin/bash -c "hdfs dfs -mkdir /input"
-docker exec hadoop-master /bin/bash -c "hdfs dfs -put /sales/Sales_extract100.csv /input"
+docker exec hadoop-master /bin/bash -c "hdfs dfs -put /root/sales/Sales_extract100.csv /input"
