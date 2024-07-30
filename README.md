@@ -21,30 +21,15 @@ Voici une liste de question que nous voulons aborder:
 
 ### Mise en place de la base de donnée
 
-TODO: [Documenter ici le set up du cluster Hadoop](https://gitlab.ec-lyon.fr/sderrode/TP_BigData_ECL)
-
-The **bike-postgres** container should be under the same network as hadoop-master
-
 ```bash
-docker network connect hadoop bike_postgres
-```
-
-```bash
-# In local terminal
-# Mettre en place le driver jdbc postgresql dans le container hadoop-master
-docker cp postgresql-42.7.3.jar hadoop-master:/opt/spark/jars/
-```
-
-```bash
-# In local terminal
-cd bike_sales_analysis
-docker cp Sales_extract100.csv hadoop-master:/root/sales
+source init.sh #ou ./init.sh
 ```
 
 ```bash
 # In hadoop-master container terminal
 hdfs dfs -mkdir /input/
 hdfs dfs -put sales/Sales.csv /input/
+spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_category.py
 ```
 
 ### Lancer le script 01 -> Revenu par catégories
@@ -59,6 +44,11 @@ docker cp bike_sales_analysis/batch/revenue_per_category/revenue_per_category.py
 spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_category.py
 ```
 
+## Ressources
+
+- L'image initial du cluster hadoop vient du [TP BigData de l'Ecole Centrale de Lyon](https://gitlab.ec-lyon.fr/sderrode/TP_BigData_ECL) proposé par Stéphane DERRODE.
+- [Documentation pySpark]()
+- [Documentation Grafana]()
 
 ## Groupe
 
