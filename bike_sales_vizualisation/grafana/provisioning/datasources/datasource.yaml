@@ -5,9 +5,14 @@ datasources:
     type: postgres
     access: proxy
     orgId: 1
+    uid: ddtc92tvsjz0gb
     url: bike_postgres
     user: postgres
-    password: secret
+    secureJsonData:
+      sslmode:
+      password: secret
+    jsonData:
+      sslmode: disable
     database: bike_db
     isDefault: true
     editable: true
