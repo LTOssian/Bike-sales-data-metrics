@@ -55,7 +55,7 @@ CREATE TABLE sub_category_revenue (
 );
 
 -- Question 3: Top des produits
-CREATE TABLE top_products (
+CREATE TABLE top_20_products_global (
     product_name VARCHAR(255) PRIMARY KEY,
     total_revenue NUMERIC
 );
