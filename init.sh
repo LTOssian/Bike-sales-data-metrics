@@ -41,6 +41,7 @@ docker cp bike_sales_analysis/batch/revenue_per_subcategory/revenue_per_subcateg
 docker cp bike_sales_analysis/batch/top_10_products_france/top_10_products_france.py hadoop-master:/root/sales
 docker cp bike_sales_analysis/batch/top-20-revenue-generating-products/top_20_revenue_generating_products.py hadoop-master:/root/sales
 docker cp bike_sales_analysis/batch/which_age_slice_buy_more/which_age_slice_buy_more.py hadoop-master:/root/sales
+
 # Set JAVA_HOME based on the architecture (AMD or ARM)
 
 # Check if the platform is ARM (specific for recent Apple systems with ARM processors)
