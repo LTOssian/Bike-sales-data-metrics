@@ -74,3 +74,12 @@ docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/post
 docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/top_20_revenue_generating_products.py"
 docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/revenue_per_subcategory.py"
 docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar ./sales/which_age_slice_buy_more.py"
+
+# Start FastAPI server
+docker-compose up -d fastapi
+
+# Copy the Spark Streaming script to the master container
+docker cp bike_sales_analysis/stream/spark_listener.py hadoop-master:/root/sales
+
+# Start Spark Streaming job
+docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar /root/sales/spark_listener.py"
