@@ -29,6 +29,12 @@ Voici une liste de question que nous voulons aborder:
 
 ## Lancement
 
+<p align="center">
+  <img src="./docs/screenshot-hadoop.png" alt="Screenshot du rapport hadoop">
+  <br>
+  <em>Votre rapport Hadoop si tout à run correctement.<br>http://localhost:8088/cluster/apps</em>
+</p>
+
 ### Mise en place et lancement du projet
 
 #### 1. Lancer le traitement en batch
