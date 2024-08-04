@@ -46,7 +46,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      KAFKA_BROKER: kafka1:9092
+      KAFKA_BROKER: kafka1:19092
     networks:
       - hadoop
     depends_on:
