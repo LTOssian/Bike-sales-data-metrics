@@ -49,7 +49,7 @@ source init.sh #ou ./init.sh
 
 #### Visualiser les données traitées
 
-Enfin, veuillez vous rendre sur http://localhost:3000 et vous connecter sur Grafana (username: admin, password: admin) afin d'avoir la visualisation des [questions](#objectif).
+Enfin, veuillez vous rendre sur http://localhost:3000d/ddtc9zkmxla80e/bike-sales-analytics?orgId=1 et vous connecter sur Grafana (username: admin, password: admin) afin d'avoir la visualisation des [questions](#objectif).
 
 
 ## Ressources
