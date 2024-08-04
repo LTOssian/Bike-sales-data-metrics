@@ -96,8 +96,8 @@ curl --location 'localhost:8000/produce/' \
 ## Ressources
 
 - L'image initial du cluster hadoop vient du [TP BigData de l'Ecole Centrale de Lyon](https://gitlab.ec-lyon.fr/sderrode/TP_BigData_ECL) proposé par Stéphane DERRODE.
-- [Documentation pySpark]()
-- [Documentation Grafana]()
+- [Documentation pySpark](https://spark.apache.org/docs/latest/api/python/index.html)
+- [Documentation Grafana](https://grafana.com/docs/grafana/latest/)
 
 ## Groupe
 
