@@ -1,6 +1,6 @@
 # Ventes de vélos en Europe
 
-![Docker](https://img.shields.io/badge/Docker-blue) ![Bash](https://img.shields.io/badge/Bash-lightgrey) ![Python](https://img.shields.io/badge/Python-blue) ![FastAPI](https://img.shields.io/badge/FastAPI-green) ![Spark](https://img.shields.io/badge/Spark-orange) ![Kafka](https://img.shields.io/badge/Kafka-brown) ![Hadoop](https://img.shields.io/badge/Hadoop-yellow) ![Grafana](https://img.shields.io/badge/Grafana-red) 
+![Docker](https://img.shields.io/badge/Docker-blue) ![Bash](https://img.shields.io/badge/Bash-lightgrey) ![Python](https://img.shields.io/badge/Python-blue) ![FastAPI](https://img.shields.io/badge/FastAPI-green) ![Spark](https://img.shields.io/badge/Spark-orange) ![Kafka](https://img.shields.io/badge/Kafka-brown) ![Hadoop](https://img.shields.io/badge/Hadoop-yellow) ![Grafana](https://img.shields.io/badge/Grafana-red) ![Postgres](https://img.shields.io/badge/PostgreSQL-pink)
 
 <p align="center">
   <img src="./docs/screenshot-dashboard.png" alt="Screenshot du dashboard Bike Sales">
