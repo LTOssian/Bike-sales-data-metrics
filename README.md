@@ -48,6 +48,11 @@ source init.sh #ou ./init.sh
 
 ```bash
 source init-streaming.sh #ou ./init-streaming.sh
+
+
+
+docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 /root/sales/spark_listener.py"
+
 ```
 
 #### Détails du script streaming
@@ -63,7 +68,7 @@ source init-streaming.sh #ou ./init-streaming.sh
 
 #### Visualiser les données traitées
 
-Enfin, veuillez vous rendre sur http://localhost:3000d/ddtc9zkmxla80e/bike-sales-analytics?orgId=1 et vous connecter sur Grafana (username: admin, password: admin) afin d'avoir la visualisation des [questions](#objectif).
+Enfin, veuillez vous rendre sur [localhost:3000 dans le Dashboard](http://localhost:3000/d/ddtc9zkmxla80e/bike-sales-analytics?orgId=1) et vous connecter sur Grafana (username: admin, password: admin) afin d'avoir la visualisation des [questions](#objectif).
 
 #### Comment produire des données en temps réel ?
 

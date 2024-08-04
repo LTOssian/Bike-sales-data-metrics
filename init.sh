@@ -23,6 +23,7 @@ docker run -itd -p 8041:8042 --net=hadoop \
   stephanederrode/docker-cluster-hadoop-spark-python-16:3.5
 
 # Start the docker-compose services
+docker-compose -f docker-compose.stream.yml up -d
 docker-compose up -d
 
 # Create the folder tree
