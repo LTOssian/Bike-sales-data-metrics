@@ -1,8 +1,7 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import from_json, col
+from pyspark.sql.functions import from_json, col, to_date, when
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
 
-# Define schema for the data
 schema = StructType([
     StructField("Date", StringType(), True),
     StructField("Day", IntegerType(), True),
@@ -24,29 +23,31 @@ schema = StructType([
     StructField("Revenue", FloatType(), True)
 ])
 
-# Create Spark session
-spark = SparkSession \
-    .builder \
-    .appName("KafkaSparkStreaming") \
-    .config("spark.jars.packages", "org.postgresql:postgresql:42.3.6") \
+spark = SparkSession.builder \
+    .appName("KafkaSparkListener") \
     .getOrCreate()
 
-# Read from Kafka
-df = spark \
-    .readStream \
+df = spark.readStream \
     .format("kafka") \
-    .option("kafka.bootstrap.servers", "kafka:9092") \
+    .option("kafka.bootstrap.servers", "kafka1:19092") \
     .option("subscribe", "real_time_data") \
     .load()
 
-# Convert value column to string
-df = df.selectExpr("CAST(value AS STRING)")
 
-# Parse JSON data
-df_parsed = df.select(from_json(col("value"), schema).alias("data")).select("data.*")
+# Convert the value column from bytes to string and parse JSON
+
+df = df.selectExpr("CAST(value AS STRING) as json_value")
+df = df.select(from_json(col("json_value"), schema).alias("data")).select("data.*")
+
+# Map input values to match the values in the database
+df = df.withColumn("Customer_Gender", 
+                   when(col("Customer_Gender") == "Male", "M")
+                   .when(col("Customer_Gender") == "Female", "F")
+                   .otherwise(col("Customer_Gender")))
+df = df.withColumn("Date", to_date(col("Date"), "yyyy-MM-dd"))
 
 # Write stream to PostgreSQL
-query = df_parsed.writeStream \
+query = df.writeStream \
     .foreachBatch(lambda batch_df, _: batch_df.write \
         .format("jdbc") \
         .option("url", "jdbc:postgresql://bike_postgres:5432/bike_db") \
