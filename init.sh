@@ -42,9 +42,6 @@ docker cp bike_sales_analysis/batch/top_10_products_france/top_10_products_franc
 docker cp bike_sales_analysis/batch/top-20-revenue-generating-products/top_20_revenue_generating_products.py hadoop-master:/root/sales
 docker cp bike_sales_analysis/batch/which_age_slice_buy_more/which_age_slice_buy_more.py hadoop-master:/root/sales
 
-# Copy the Spark Streaming script to the master container
-docker cp bike_sales_analysis/stream/spark_listener.py hadoop-master:/root/sales
-
 # Set JAVA_HOME based on the architecture (AMD or ARM)
 
 # Check if the platform is ARM (specific for recent Apple systems with ARM processors)
