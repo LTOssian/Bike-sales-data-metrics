@@ -49,10 +49,8 @@ source init.sh #ou ./init.sh
 ```bash
 source init-streaming.sh #ou ./init-streaming.sh
 
-
-
-docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 /root/sales/spark_listener.py"
-
+# Pour relancer manuellement:
+# docker exec hadoop-master /bin/bash -c "spark-submit --jars /opt/spark/jars/postgresql-42.7.3.jar --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 /root/sales/spark_listener.py"
 ```
 
 #### Détails du script streaming
