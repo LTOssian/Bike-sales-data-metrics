@@ -48,7 +48,7 @@ source init.sh #ou ./init.sh
 - Pull l'image du cluster hadoop
 - Lancer le docker compose contenant notre base de donnée PostgreSQL et le setup de l'application Grafana
 - Déplacer les scripts Spark et les fichiers à traiter vers le cluster hadoop
-- Lancer les scripts et alimenter la base de donnée
+- Lancer les scripts et alimenter la base de données
 
 #### 2. Lancer le traitement en temps réel
 
@@ -61,7 +61,7 @@ source init-streaming.sh #ou ./init-streaming.sh
 
 #### Détails du script streaming
 
-- Lancer le docker compose stream contenent un serveur fastAPI (port:8000) pour produire des données et le cluster kafka
+- Lancer le docker compose stream contenent notre container pour le serveur fastAPI (port:8000) pour produire des données en temps réel et le broker kafka
 - Lancer le script d'écoute du producer kafka
 
 <p align="center">
@@ -72,7 +72,7 @@ source init-streaming.sh #ou ./init-streaming.sh
 
 #### Visualiser les données traitées
 
-Enfin, veuillez vous rendre sur [localhost:3000 dans le Dashboard](http://localhost:3000/d/ddtc9zkmxla80e/bike-sales-analytics?orgId=1) et vous connecter sur Grafana (username: admin, password: admin) afin d'avoir la visualisation des [questions](#objectif).
+Enfin, veuillez vous rendre sur [localhost:3000 dans le Dashboard](http://localhost:3000/d/ddtc9zkmxla80e/bike-sales-analytics?orgId=1) et vous connecter sur Grafana (username: admin, password: admin) afin d'avoir la visualisation des [réponses aux objectifs](#objectif).
 
 #### Comment produire des données en temps réel ?
 
